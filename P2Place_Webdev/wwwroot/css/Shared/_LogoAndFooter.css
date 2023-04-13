@@ -2,10 +2,6 @@
 
 /* Semantic tags */
 
-body {
-    height: 100vw;
-}
-
 header {
     display: flex;
     justify-content: center;

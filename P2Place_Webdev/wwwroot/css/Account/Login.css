@@ -9,27 +9,21 @@
         text-align: center;
     }
 
-    /* Classes */
-
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        align-content: center;
-        margin-top: 2rem;
-        height: 100%;
-    }
-
-    .form-container {
-        width: 100%;
-        padding: 1rem;
-    }
-
     form {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         gap: 0.4rem;
+    }
+
+    /* Classes */
+    .form-container {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        padding: 1rem;
     }
 
     .input-field {
@@ -48,11 +42,10 @@
 
     a.link {
         padding: 0.5rem;
-        text-decoration: underline;
         color: dodgerblue;
     }
 
-    span {
+    .alert-text {
         color: #dc3545;
     }
 
