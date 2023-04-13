@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - P2Place</title>
+    <link rel="stylesheet" href="/css/Shared/_NavAndFooter.css" asp-append-version="true"/>
+</head>
+<body>
+    <header>
+        <nav>
+            <a id="logo-text" asp-controller="Home" asp-action="Index">P2Place</a>
+            <ul id="nav-container" class="nav-links">
+                <li class="nav-link selected">
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-link">
+                    <a asp-controller="Home" asp-action="Messages">Messages</a>
+                </li>
+                <li class="nav-link">
+                    <a asp-controller="Home" asp-action="My_Adverts">My Adverts</a>
+                </li>
+            </ul>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a id="welcome-text" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
+                </form>
+            }
+            else
+            {
+                <a id="account-img" asp-area="Identity" asp-page="/Account/Login"><img src="~/images/user.png" /></a>
+            }
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        &copy; 2023 - Kees Wijenberg - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </footer>
+    <div id="pageSelector">@ViewData["Page"]</div>
+    <script src="~/js/Shared/_NavAndFooter-NavAnimation.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

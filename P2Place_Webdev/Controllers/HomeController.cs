@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using P2Place_Webdev.Models;
 using System.Diagnostics;
 
@@ -18,7 +19,17 @@ namespace P2Place_Webdev.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Messages()
+        {
+            return View();
+        }
+
+        public IActionResult My_Adverts() 
+        {
+            return View();
+        }
+
+        public IActionResult Test()
         {
             return View();
         }

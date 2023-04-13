@@ -1,0 +1,23 @@
+﻿/* Advert Card CSS */
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+    margin: 4rem;
+}
+
+.card {
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 0.4rem;
+    min-height: 18rem;
+}
+
+    .card img {
+        border-radius: 0.4rem 0.4rem 0 0;
+    }
+
+    .card:hover {
+        box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2);
+    }

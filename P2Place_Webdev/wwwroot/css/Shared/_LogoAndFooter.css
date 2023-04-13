@@ -1,0 +1,32 @@
+﻿@import "_default.css";
+
+/* Semantic tags */
+
+body {
+    height: 100vw;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 1rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    border-top: 3px solid #FD8232;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* Unique CSS */
+
+#logo-text {
+    font-size: 3rem;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 3px solid #FD8232;
+}
