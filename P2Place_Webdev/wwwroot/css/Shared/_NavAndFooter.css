@@ -59,6 +59,13 @@ footer {
     text-align: center;
 }
 
+#logout-text {
+    font-size: 1.2rem;
+    color: #FD8232;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
 #pageSelector {
     display:none;
 }
