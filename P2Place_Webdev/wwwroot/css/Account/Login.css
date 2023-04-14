@@ -22,8 +22,10 @@
         left: 50%;
         top: 40%;
         transform: translate(-50%, -50%);
-        width: 100%;
+        width: 45%;
         padding: 1rem;
+        border-radius: 0.4rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.15);
     }
 
     .input-field {
@@ -57,12 +59,14 @@
         border: 2px solid #FD8232;
         border-radius: 0.2rem;
         background-color: #FD8232;
-        color: white;
+        color: black;
     }
 
-        #submit-button:hover {
-            background-color: #ff7c26;
-            border: 1px solid black;
+        #submit-button:hover,
+        #submit-button:focus {
+            transition: 1s;
+            background-color: #fd761c;
+            cursor: pointer;
         }
 }
 
