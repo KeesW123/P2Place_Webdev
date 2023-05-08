@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using P2Place_Webdev.EmailSending;
 using P2Place_Webdev.Models;
 
 namespace P2Place_Webdev.Areas.Identity.Pages.Account
@@ -36,7 +37,7 @@ namespace P2Place_Webdev.Areas.Identity.Pages.Account
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            EmailSender emailSender)
         {
             _userManager = userManager;
             _userStore = userStore;

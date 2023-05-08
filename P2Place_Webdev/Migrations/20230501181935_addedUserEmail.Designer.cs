@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using P2Place_Webdev.Data;
 
@@ -11,9 +12,11 @@ using P2Place_Webdev.Data;
 namespace P2Place_Webdev.Migrations
 {
     [DbContext(typeof(P2PlaceDbContext))]
-    partial class P2PlaceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230501181935_addedUserEmail")]
+    partial class addedUserEmail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -64,6 +64,11 @@ footer {
     color: #FD8232;
     font-weight: 600;
     text-transform: uppercase;
+    margin-left: 2rem;
+}
+
+#logout-text:hover {
+    opacity: 0.8;
 }
 
 #pageSelector {

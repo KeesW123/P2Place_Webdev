@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="~/css/Account/ResendEmailConfirmation.css" asp-append-version="true" />
 
 <div class="form-container">
-    <h1>Enter your email</h1>
+    <h1>@ViewData["Title"]</h1>
     <form novalidate method="post">
         <div class="alert-text" asp-validation-summary="ModelOnly" role="alert"></div>
 
@@ -15,7 +15,7 @@
         <input class="input-field" asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="name@example.com" />
         <span class="alert-text" asp-validation-for="Input.Email"></span>
 
-        <button id="submit-button" type="submit">Resend</button>
+        <button id="submit-button" type="submit">Reset Password</button>
     </form>
 </div>
 

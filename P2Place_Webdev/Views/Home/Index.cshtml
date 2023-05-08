@@ -1,15 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Advert>
+@{
+    ViewData["Title"] = "Index";
     ViewData["Page"] = 0;
+    
 }
-
-<link rel="stylesheet" href="~/css/Home/Index.css" asp-append-version="true" />
+<link rel="stylesheet" href="/css/Home/Index.css" asp-append-version="true" />
 
 <div class="cards-container">
-    <advert-card></advert-card>
-    <advert-card></advert-card>
-    <advert-card></advert-card>
-    <advert-card></advert-card>
+    @foreach (var advert in Model)
+    {
+        var base64 = Convert.ToBase64String(advert.Photo);
+        var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+        <div class="card">
+            <img src="@imgSrc" class="card-image">
+            <div class="card-textcontainer">
+            <b class="card-title-text">@advert.Title</b>
+            <p class="card-price-text">€@advert.Price</p>
+            <p class="card-description-text">@advert.Description</p>
+            <p class="card-createdat-text">@advert.CreatedAt</p>
+                <form><button class="buy-button" asp-controller="Home" asp-action="Chat" name="userEmail" value=@advert.UserEmail>Buy</button></form>
+            </div>
+        </div>
+    }
 </div>
-
-<script src="~/js/CustomElements/AdvertCard.js" asp-append-version="true"></script>

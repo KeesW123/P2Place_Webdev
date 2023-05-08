@@ -1,0 +1,14 @@
+﻿@model string
+<link rel="stylesheet" href="/css/Home/Chat.css" asp-append-version="true" />
+
+<div class="chat-container">
+    <p>Chat with @Model</p>
+    <input type="text" id="messageInput" />
+    <input type="button" id="sendButton" value="Send Message" />
+    <div class="messages-container">
+    <ul id="messagesList"></ul>
+    </div>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
