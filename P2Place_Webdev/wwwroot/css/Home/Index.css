@@ -34,14 +34,14 @@ form {
         box-shadow: 0 0.5rem 1rem 0 rgba(0,0,0,0.2);
     }
 
-.buy-button {
+.chat-button {
     background-color: #FD8232;
     border-radius: 0.4rem;
     width: 6rem;
     height: 2.5rem;
 }
 
-.buy-button:hover {
+.chat-button:hover {
     opacity: 0.8;
 }
 

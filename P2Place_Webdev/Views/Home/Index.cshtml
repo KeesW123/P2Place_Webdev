@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Index";
     ViewData["Page"] = 0;
-    
 }
 <link rel="stylesheet" href="/css/Home/Index.css" asp-append-version="true" />
 
@@ -18,7 +17,7 @@
             <p class="card-price-text">€@advert.Price</p>
             <p class="card-description-text">@advert.Description</p>
             <p class="card-createdat-text">@advert.CreatedAt</p>
-                <form><button class="buy-button" asp-controller="Home" asp-action="Chat" name="userEmail" value=@advert.UserEmail>Buy</button></form>
+                <form><button class="chat-button" asp-controller="Home" asp-action="Chat" name="userEmail" value=@advert.UserEmail>Chat</button></form>
             </div>
         </div>
     }

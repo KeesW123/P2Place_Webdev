@@ -6,16 +6,9 @@ namespace SignalRChat.Hubs
     [Authorize]
     public class ChatHub : Hub
     {
-        public override Task OnConnectedAsync()
+        public async Task SendMessage(string message)
         {
-            Groups.AddToGroupAsync(Context.ConnectionId, Context.User.Identity.Name);
-
-            return base.OnConnectedAsync();
-        }
-
-        public Task SendToUserGroupMessage(string receiver, string message)
-        {
-            return Clients.Group(receiver).SendAsync("ReceiveMessage", Context.User.Identity.Name, message);
+            await Clients.All.SendAsync("ReceiveMessage", Context.User.Identity.Name, message);
         }
     }
 }
