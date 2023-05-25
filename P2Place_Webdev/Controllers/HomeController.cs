@@ -74,9 +74,14 @@ namespace P2Place_Webdev.Controllers
             return View();
         }
 
-        public IActionResult Chat(string userEmail)
+        public IActionResult Chat()
         {
-            return View("Chat", userEmail);
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
         }
     }
 }

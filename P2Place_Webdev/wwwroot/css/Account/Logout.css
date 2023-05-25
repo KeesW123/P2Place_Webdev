@@ -1,1 +1,10 @@
-﻿
+﻿button {
+    background-color: #FD8232;
+    border-radius: 0.4rem;
+    width: 10rem;
+    height: 2.5rem;
+}
+
+button:hover {
+    opacity: 0.8;
+}

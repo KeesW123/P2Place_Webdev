@@ -4,8 +4,9 @@
     ViewData["Title"] = "Log out";
 }
 
+<link rel="stylesheet" href="~/css/Account/Logout.css" asp-append-version="true" />
+
 <header>
-    <h1>@ViewData["Title"]</h1>
     @{
         if (User.Identity?.IsAuthenticated ?? false)
         {
