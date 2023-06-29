@@ -1,24 +1,49 @@
 ﻿@model IEnumerable<Advert>
 @{
     ViewData["Title"] = "Index";
-    ViewData["Page"] = 0;
 }
 <link rel="stylesheet" href="/css/Home/Index.css" asp-append-version="true" />
 
-<div class="cards-container">
-    @foreach (var advert in Model)
-    {
-        var base64 = Convert.ToBase64String(advert.Photo);
-        var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
-        <div class="card">
-            <img src="@imgSrc" class="card-image">
-            <div class="card-textcontainer">
-            <b class="card-title-text">@advert.Title</b>
-            <p class="card-price-text">€@advert.Price</p>
-            <p class="card-description-text">@advert.Description</p>
-            <p class="card-createdat-text">@advert.CreatedAt</p>
-                <form><button class="chat-button" asp-controller="Home" asp-action="Chat">Chat</button></form>
-            </div>
-        </div>
-    }
+<div class="content-gdpr-not-chosen hide">
+    <p>Voordat u verder gaat op deze pagina moet u een GDPR keuze maken.</p>
 </div>
+
+<div class="content-gdpr-accept hide">
+<div class="cards-container">
+        @foreach (var advert in Model)
+        {
+            var base64 = Convert.ToBase64String(advert.Photo);
+            var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+            <div class="card">
+                <img src="@imgSrc" class="card-image">
+                <div class="card-textcontainer">
+                <b class="card-title-text">@advert.Title</b>
+                <p class="card-price-text">€@advert.Price</p>
+                <p class="card-description-text">@advert.Description</p>
+                <p class="card-createdat-text">@advert.CreatedAt</p>
+                    <form><button class="chat-button" asp-controller="Home" asp-action="Chat">Chat</button></form>
+                </div>
+            </div>
+        }
+</div>
+</div>
+
+<div class="content-gdpr-reject hide">
+    <p>Deze content wordt alleen getoond als gdrp is verworpen.</p>
+</div>
+
+<section class="gdpr-consent hide">
+
+    <div class="gdpr-consent__description">
+        <p>
+            Deze website gebruikt cookies.
+            We gebruiken cookies om content te personaliseren, voor social media en het analyseren
+            van verkeer op de website, advertenties.
+        </p>
+    </div>
+
+    <div class="gdpr-consent__choice">
+        <button class="gdpr-consent__button--accept">Ja, natuurlijk</button>
+        <button class="gdpr-consent__button--reject">Nee, misschien later</button>
+    </div>
+</section>

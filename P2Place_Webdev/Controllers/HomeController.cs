@@ -37,7 +37,6 @@ namespace P2Place_Webdev.Controllers
         [HttpPost]
         public async Task<IActionResult> Create_Advert(Advert advert, IFormFile postedFile)
         {
-
             if (postedFile != null && postedFile.Length > 0)
             {
                 using (MemoryStream stream = new MemoryStream())
@@ -81,6 +80,20 @@ namespace P2Place_Webdev.Controllers
 
         public IActionResult Contact()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(Contactform form)
+        {
+            if(ModelState.IsValid)
+            {
+                form.Id = Guid.NewGuid().ToString();
+                form.CreatedAt = DateTime.Now;
+                _dbcontext.Contactforms.Add(form);
+                _dbcontext.SaveChanges();
+                return RedirectToAction("Index");
+            }
             return View();
         }
     }

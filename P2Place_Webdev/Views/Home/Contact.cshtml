@@ -1,6 +1,45 @@
-﻿@{
+﻿@model Contactform
+@{
     ViewData["Title"] = "Contact";
-    ViewData["Page"] = 3;
+    Layout = "_LogoAndFooter";
 }
 
 <link rel="stylesheet" href="/css/Home/Contact.css" asp-append-version="true" />
+
+<div class="form-container">
+    <form method="post" id="my_captcha_form" asp-controller="Home" asp-action="Contact">
+        <div class="alert-text" asp-validation-summary="ModelOnly" role="alert"></div>
+
+        <label asp-for="Subject">Onderwerp</label>
+        <input class="input-field" asp-for="Subject" />
+        <span class="alert-text" asp-validation-for="Subject"></span>
+
+        <label asp-for="Email">Email</label>
+        <input class="input-field" asp-for="Email" />
+        <span class="alert-text" asp-validation-for="Email"></span>
+
+        <label asp-for="Message">Bericht</label>
+        <input class="input-field" asp-for="Message" />
+        <span class="alert-text" asp-validation-for="Message"></span>
+
+        <div class="g-recaptcha" data-sitekey="6LfEPpMkAAAAADO-Mwd3XP0lyXkRbi9zQomlioKz"></div>
+        <br />
+
+        <button id="submit-button" type="submit">Send</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("my_captcha_form").addEventListener("submit", function (evt) {
+        var response = grecaptcha.getResponse();
+        if (response.length == 0) {
+            alert("The Captcha is required.");
+            evt.preventDefault();
+            return false;
+        }
+    });
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
